@@ -17,7 +17,7 @@ class CreatePartiesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('url')->nullable();
-            $table->integer('district_id')->unsigned();
+            $table->integer('district_id')->unsigned()->nullable();
             $table->integer('parent_id')->unsigned()->nullable();
             $table->string('logo')->nullable();
             $table->timestamps();

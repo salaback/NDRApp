@@ -30,6 +30,6 @@ class DatabaseSeeder extends Seeder
             'start' => \Carbon\Carbon::yesterday()
         ]);
 
-        $promises = factory(\App\Promise::class)->create();
+        factory(\App\Promise::class, 10)->create();
     }
 }

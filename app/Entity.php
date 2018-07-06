@@ -9,6 +9,10 @@ class Entity extends Model
     protected $fillable = ['name', 'entity_type', 'entity_id'];
 
 
+    public function person()
+    {
+        return $this->hasOne(Person::class, 'id','entitiable_id');
+    }
     /**
      *
      * All promises made by entities

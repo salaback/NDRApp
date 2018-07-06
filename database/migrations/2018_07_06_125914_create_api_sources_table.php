@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEntitiesTable extends Migration
+class CreateApiSourcesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateEntitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('entities', function (Blueprint $table) {
+        Schema::create('api_sources', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('entitiable_type')->nullable();
-            $table->integer('entitiable_id')->nullable();
+            $table->string('slug');
+            $table->string('endpoint');
+            $table->string('frequency');
+            $table->dateTime('last_run');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateEntitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entities');
+        Schema::dropIfExists('api_sources');
     }
 }

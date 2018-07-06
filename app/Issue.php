@@ -11,6 +11,28 @@ class Issue extends Model
 
     /**
      *
+     * Upper level issue
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function parentIssue()
+    {
+        return $this->belongsTo(Issue::class, 'parent_id');
+    }
+
+    /**
+     *
+     * Sub issues
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function childIssues()
+    {
+        return $this->hasMany(Issue::class, 'parent_id');
+    }
+
+    /**
+     *
      * statements related to issue
      *
      *
