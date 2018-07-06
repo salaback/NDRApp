@@ -15,7 +15,6 @@ class CreatePromisesTable extends Migration
     {
         Schema::create('promises', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
             $table->string('promise_made');
             $table->timestamps();
         });

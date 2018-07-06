@@ -19,7 +19,7 @@ class CreatePartyAffiliationsTable extends Migration
             $table->integer('person_id');
             $table->date('start');
             $table->date('end')->nullable();
-            $table->string('end_type')->unsigned();
+            $table->string('end_type')->nullable();
             $table->json('sources')->nullable();
             $table->timestamps();
         });
