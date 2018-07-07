@@ -30,7 +30,7 @@ class Party extends Model
      */
     public function currentMembers()
     {
-        return $this->everMembers()->whereNull('pivot.end');
+        return $this->hasManyThrough(Person::class,'party_affiliations', 'party_id', 'person_id');
     }
 
     public function district()

@@ -5,17 +5,24 @@
     <!-- Line component -->
     <div class="line text-muted"></div>
 
-    <!-- Separator -->
-    <div class="separator text-muted">
-        <time>26. 3. 2015</time>
-    </div>
     <!-- /Separator -->
 
-    <!-- Panel -->
-    @foreach($person->votes->sortBy('created_at') as $vote)
-        @include('snipits.timeline_moment.voted', ['vote' => $vote])
+    @foreach($timeline as $year => $yearElement)
+        @foreach($yearElement as $month => $monthElement)
+            @foreach($monthElement as $day => $dayElement)
+                <div class="separator text-muted">
+                    <time>{{$month}} {{$year}}</time>
+                </div>
+                    @foreach($dayElement as $element)
+                        @if($element['type'] == 'vote')
+                            @include('snipits.timeline_moment.voted', ['vote' => $element])
+                        @elseif($element['type'] == 'promise')
+                            @include('snipits.timeline_moment.promise', ['promise' => $element])
+                        @endif
+                    @endforeach
+            @endforeach
+        @endforeach
     @endforeach
-    <!-- /Panel -->
 
 
 

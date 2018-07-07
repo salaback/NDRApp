@@ -8,16 +8,15 @@
         <div class="col-4">
             <div class="panel">
                 <div class="panel-heading">
-                    Current Memebers
+                    Current Members
                 </div>
                 <div class="panel-body">
                     <div class="list-group">
-                        {{dd($party->ever_memebers)}}
-                        @foreach($party->current_members as $member)
-                            <div class="list-group-item">
-                                {{$member->name}}
-                            </div>
-                        @endforeach
+                        {{--@foreach($party->current_members as $member)--}}
+                            {{--<div class="list-group-item">--}}
+                                {{--{{$member->name}}--}}
+                            {{--</div>--}}
+                        {{--@endforeach--}}
                     </div>
                 </div>
             </div>

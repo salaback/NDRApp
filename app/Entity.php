@@ -21,7 +21,7 @@ class Entity extends Model
      */
     public function promises()
     {
-        return $this->hasMany(Promise::class);
+        return $this->belongsToMany(Promise::class);
     }
 
     /**
@@ -32,6 +32,6 @@ class Entity extends Model
      */
     public function statements()
     {
-        return $this->hasMany(Statement::class);
+        return $this->belongsToMany(Statement::class);
     }
 }
