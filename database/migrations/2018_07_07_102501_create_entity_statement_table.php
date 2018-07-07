@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVotesTable extends Migration
+class CreateEntityStatementTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateVotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('votes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->json('results')->nullable();
-            $table->integer('district_id')->unsigned();
-            $table->timestamps();
+        Schema::create('entity_statement', function (Blueprint $table) {
+            $table->integer('entity_id')->unsigned();
+            $table->integer('statement_id')->unsigned();
         });
     }
 
@@ -29,6 +26,6 @@ class CreateVotesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('votes');
+        Schema::dropIfExists('entity_statement');
     }
 }

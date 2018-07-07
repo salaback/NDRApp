@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Promise extends Model
 {
-    protected $fillable = ['promise_made'];
+    protected $fillable = ['promise_made', 'created_at'];
 
     /**
      * Get entities related to promise

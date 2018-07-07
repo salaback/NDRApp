@@ -8,13 +8,18 @@ class CastVote extends Model
 {
     protected $fillable = ['vote_id', 'person_id', 'vote'];
 
+    protected $dates = [
+        'created_at',
+        'updated_at'
+    ];
+
     /**
      * The vote in which this vote was cast
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function vote()
+    public function poll()
     {
-        return $this->belongsTo(Vote::class);
+        return $this->belongsTo(Vote::class, 'vote_id');
     }
 }

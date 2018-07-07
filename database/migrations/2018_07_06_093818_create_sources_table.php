@@ -19,7 +19,6 @@ class CreateSourcesTable extends Migration
             $table->string('url')->nullable();
             $table->string('type')->nullable();
             $table->text('raw_text');
-            $table->json('log');
             $table->timestamps();
         });
     }

@@ -66,7 +66,7 @@ class APISync
             {
                 $current = Person::create($personal);
 
-                $entity->entitiable_type = '\App\Person';
+                $entity->entitiable_type = 'App\Person';
                 $entity->entitiable_id = $current->id;
 
                 $entity->save();

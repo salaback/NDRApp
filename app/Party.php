@@ -16,11 +16,10 @@ class Party extends Model
     /**
      * All memebers ever affliliated with party
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function everMembers()
     {
-        return $this->belongsToMany(Person::class,'party_affiliations', 'party_id', 'person_id')->withPivot(['start', 'end'])->orderBy('start');
+        return $this->hasManyThrough(Person::class,'party_affiliations', 'party_id', 'person_id');
     }
 
     /**
@@ -33,4 +32,10 @@ class Party extends Model
     {
         return $this->everMembers()->whereNull('pivot.end');
     }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+
 }

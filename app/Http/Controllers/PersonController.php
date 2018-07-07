@@ -13,4 +13,9 @@ class PersonController extends Controller
 
         return view('person.index', compact('people'));
     }
+
+    public function show(Person $person)
+    {
+        return view('person.show', compact('person'));
+    }
 }

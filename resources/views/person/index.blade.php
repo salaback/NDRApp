@@ -9,6 +9,7 @@
                 <th scope="col">Last</th>
                 <th scope="col">Party</th>
                 <th scope="col">District</th>
+                <th scope="col">Profile</th>
             </tr>
             </thead>
             <tbody>
@@ -18,6 +19,7 @@
                         <td>{{$person->last_name}}</td>
                         <td>@if(isset($person->current_party)) {{$person->current_party->party->name}} @else Unaffiliated @endif</td>
                         <td>{{$person->district->name}}</td>
+                        <td><a href="{{route('person.show', [$person->id])}}" class="btn btn-primary">Profile</a></td>
                     </tr>
                 @endforeach
             </tbody>
